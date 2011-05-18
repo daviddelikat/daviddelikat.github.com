@@ -1,4 +1,4 @@
-desc "deploy site to litanyagainstfear.com"
+desc "deploy site to daviddelikat.github.com"
 task :deploy do
   require 'rubygems'
   require 'highline/import'
@@ -9,9 +9,9 @@ task :deploy do
   username = ask("Username:  ") { |q| q.echo = true }
   password = ask("Password:  ") { |q| q.echo = "*" }
 
-  Net::SSH.start('litanyagainstfear.com', username, :port => 1337, :password => password) do |ssh|
+  Net::SSH.start('daviddelikat.github.com', username, :port => 1337, :password => password) do |ssh|
     commands = <<EOF
-cd ~/litanyagainstfear/cached-copy
+cd ~/daviddelikat.github/cached-copy
 git checkout #{branch}
 git pull origin #{branch}
 git checkout -f
